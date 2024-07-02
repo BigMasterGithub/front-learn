@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型学习</title>
+    <script>
+        class Person{
+            name = ""
+            age = 123
+            sayHello(){
+                console.log("sayHello!");
+            }
+
+        }
+
+        const p = new Person();
+    
+        console.log(p);
+        console.log(p.__proto__);
+        console.log(Object.getPrototypeOf(p) == p.__proto__)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
