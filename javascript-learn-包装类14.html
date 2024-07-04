@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>包装类</title>
+    <script>
+      let str = "hello";
+      //不建议使用下面的方式创建对象
+      let obj_str = new String("hello");
+      let obj_bool = new Boolean(true);
+      let obj_bool2 = new Boolean(false);
+      console.log(obj_bool === obj_bool2);
+      let obj_num = new Number(100);
+
+      //包装类的作用
+      //让普通类型的值可以调用对应包装类的方法。
+      let str22="222";
+      str22.name="哈哈";
+      console.log(str22.name);//为啥为undefined？将name属性加入到str22对应的包装类对象（临时的）
+      let num22= str22.toString();//str22为啥可以调用toString()方法？将str22转换到包装类对象String，再调用toString()方法
+
+    </script>
+  </head>
+  <body>
+    <div style="background-color: aqua">
+      <span>千万不要使用new String()形式创建对象！</span>
+    </div>
+    <div style="background-color: whitesmoke">
+      <h3 style="background-color: darksalmon;">包装类有：</h3>
+      <ul>
+        <li>String</li>
+        <li>Number</li>
+        <li>Boolean</li>
+        <li>BigInt</li>
+        <li>Symbol</li>
+      </ul>
+    </div>
+  </body>
+</html>
