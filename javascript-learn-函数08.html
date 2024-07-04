@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数调用方式</title>
+    <script>
+      /*
+        函数调用方式的不同，this所指对象也不同：
+            1.以函数形式调用，this是windows
+            2.以方法形式调用，this是调用方法的对象
+            3.构造函数中，this是新建的对象
+            4.箭头函数没有自己的this，由外层作用域决定
+            5.通过call或apply执行的函数，第一个参数就是函数的this
+            6.通过bind返回的函数，this由bind第一个参数决定（无法修改）
+      */
+      function fn01() {
+        console.warn("函数体执行", this);
+      }
+      const obj = {
+        name: "孙悟空",
+      };
+      //call和apply:用于指定函数的this
+      //call(this,param1,param2,...,paramN)
+      //apply(this,[param1,param2,...,paramN])
+      fn01.call(); //this对象是window
+      fn01.call(obj); //this对象是obj
+      fn01.apply(console);
+
+      
+
+    </script>
+  </head>
+  <body>
+    <h1>函数学习</h1>
+  </body>
+</html>

@@ -1,29 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>原型学习</title>
     <script>
-        class Person{
-            name = ""
-            age = 123
-            sayHello(){
-                console.log("sayHello!");
-            }
-
+      class Person {
+        name = "";
+        age = 123;
+        sayHello() {
+          console.log("sayHello!");
         }
+      }
+      // 对象中存储数据的地方
+      /*
+        原型对象中的内容：
+          1. 对象的方法，构造方法
+          2. 对象的数据  
+        */
 
-        const p = new Person();
-    
-        console.log(p);
-        console.log(p.__proto__);
-        console.log(Object.getPrototypeOf(p) == p.__proto__)
+      //内置对象只有一个原型，自己建立的类的原型有两个
+      //寻找对象属性时，先从对象中自身属性，若没有则去其原型中寻找。
 
+      const p = new Person();
+
+      console.log(p); //Q：为什么输出p，浏览器知道p是Person的实例对象？因为p的构造函数记录了。
+      console.log(p.__proto__);
+      console.log(Object.getPrototypeOf(p) == p.__proto__);
+      const obj = {};
+      console.log(p.__proto__.__proto__ === obj.__proto__); //true
+      console.log(p.__proto__.__proto__);
+      console.log(obj.__proto__);
+
+      /*
+           类的所有对象的原型对象都是同一个。
+           因此，对于类中的某些属性，比如方法（sayHello）存放在原型中更适合。‘
+           原型的作用：将公共属性存储到原型中。
+        */
+      const p2 = new Person();
+      const p3 = new Person();
+      console.log(
+        " p2.__proto__ === p3.__proto__  ? " + (p2.__proto__ === p3.__proto__)
+      );
+
+      //函数的原型：
+      console.log(p.sayHello.__proto__);
+      //Object的原型：
+      console.log(Object.__proto__);
+     
+      //修改原型对象，这里增加一个方法run
+      p2.__proto__.run=()=>{
+        console.log("run()");
+      }
+      
+      p2.run();
+      p3.run();
+
+      Person.prototype.run3=function(){
+
+      }
+
+      let method01=function(){
+
+      }
+      function method02(){
+
+      }
+      let method03=()=>{
+        
+      }
+      console.log(p2.__proto__)
 
     </script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>

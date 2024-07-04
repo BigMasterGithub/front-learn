@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组练习</title>
+    <script>
+      //问题一：数组去重
+      //解法：
+      let arr = [1, 2, 3, 2, 2, 2, 2, 2, 3, 1, 2, 4, 2];
+      let i = 0;
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          while (arr[j] == arr[i]) {
+            arr.splice(j, 1);
+          }
+        }
+      }
+      //问题二：冒泡排序
+      arr = [11, 22, 13, 52, 42, 22, 32, 12, 13, 1, 8, 7, 2];
+      //轮次共（数组长度-1）次。
+      for (let i = 1; i < arr.length; i++) {
+        //每轮的比较次数比上次少1，每次从0开始。
+        for (let j = 0; j < arr.length - i; j++) {
+          if (arr[j] >= arr[j + 1]) {
+            let temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+          }
+        }
+      }
+      arr = [11, 22, 13, 52, 42, 22, 32, 12, 13, 1, 8, 7, 2];
+      //问题三：选择排序
+      for (let i = 0; i < arr.length - 1; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[j] < arr[minIndex]) {
+            minIndex = j;
+          }
+        }
+        if (minIndex != i) {
+          let temp = arr[i];
+          arr[i] = arr[minIndex];
+          arr[minIndex] = temp;
+        }
+      }
+
+      console.log(arr);
+    </script>
+  </head>
+  <body>
+    <h1>数组练习</h1>
+  </body>
+</html>

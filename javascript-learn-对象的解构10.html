@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象的解构</title>
+    <script>
+      class Person {
+        constructor(name, age, gender) {
+          this.name = name;
+          this.age = age;
+          this.gender = gender;
+        }
+      }
+
+      let xiaoming = new Person("zhangzhuang", 25, "boy");
+      let { name, age, gender } = xiaoming;
+      console.log(name, age, gender);
+      let { name: n, age: a, gender: g ,address:ad="花果山"} = xiaoming; //为对象属性起别名：属性：别名
+      console.log(n, a, g,ad);
+
+      
+    </script>
+  </head>
+  <body>
+    <h1>对象的解构</h1>
+  
+  </body>
+</html>

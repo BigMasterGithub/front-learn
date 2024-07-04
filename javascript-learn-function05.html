@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数封装</title>
+    <script>
+      function selectSort(arr) {
+        for (let i = 0; i < arr.length - 1; i++) {
+          let minIndex = i;
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[minIndex]) {
+              minIndex = j;
+            }
+          }
+          if (minIndex != i) {
+            let temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+          }
+        }
+        return arr;
+      }
+      let arr2 = [2, 1, 5, 4, 3];
+      selectSort(arr2);
+      console.log(arr2);
+
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+      }
+
+      const personArr = [
+        new Person("213", 18),
+        new Person("asd", 28),
+        new Person("2asd", 38),
+      ];
+      //过滤函数
+      function filter(arr,cb) {
+        const newArr = [];
+        for (let cur of arr) {
+          if (cb(cur)) {
+            newArr.push(cur);
+          }
+        }
+        return newArr;
+      }
+
+      //回调函数：回调函数是一个作为参数传递给另一个函数的函数，
+    // 接收它的函数会在某个时间点调用这个回调函数，通常是完成了某些操作或计算之后。
+      function fn(obj){
+        return obj.age <30;
+      }
+
+      let result = filter(personArr,fn);
+      console.log(result);
+    </script>
+  </head>
+  <body>
+    <h1>函数封装</h1>
+  </body>
+</html>

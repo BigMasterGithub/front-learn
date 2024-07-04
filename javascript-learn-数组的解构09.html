@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组的解构</title>
+    <script>
+      const arr = ["va", "vb", "vc", "vd"];
+      let a, b, c;
+      //解构赋值
+      [a, b, c] = arr;
+      let [e, f, g, h2] = arr; //声明同时解构
+      console.log(e, f, g, h2);
+
+      [e, f, g, h2] = [1, 2, 3]; //覆盖,';'的作用是为不匹配的变量赋值为undefined，这里为h2赋值undefined
+
+      const arr3 = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ];
+      let [[a3, b3, c3], obj3] = arr3;
+      console.log(a3, b3, c3, obj3);
+    </script>
+  </head>
+  <body>
+    <h1>数组的解构</h1>
+  </body>
+</html>

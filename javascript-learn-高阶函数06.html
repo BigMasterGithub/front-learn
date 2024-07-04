@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高阶函数</title>
+    <script>
+      /**
+       * 高阶函数是一个以其他函数为参数或返回值的函数。
+       * */
+      //参数为函数的高阶函数
+      function filter(arr, cb) {
+        const newArr = [];
+        for (let cur of arr) {
+          console.log(cur.age);
+          if (cb(cur)) {
+            newArr.push(cur);
+          }
+        }
+        return newArr;
+      }
+
+      let arr = [{ age: 30 }, { age: 40 }, { age: 50 }];
+      let result = filter(arr, (a) => a.age > 30);
+      console.log(result);
+
+      //返回值为函数的高阶函数
+      function someFn() {
+        return "someFn1()";
+      }
+      function someFn2() {
+        console.log("someFn2");
+        return "someFn2()";
+      }
+
+      //此为高阶函数
+      function proxy(function1) {
+        return () => {
+          console.log("执行前时间:" + new Date().getFullYear().toString());
+          const result = function1();
+          return result;
+        };
+      }
+
+      let result2 = proxy(someFn);
+      result2();
+
+      let result3 = proxy(someFn2);
+      result3();
+
+      //
+    </script>
+  </head>
+  <body>
+    <h1>高阶函数</h1>
+  </body>
+</html>

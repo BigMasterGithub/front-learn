@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new关键字</title>
+    <script>
+      /*new的作用
+            1、当使用new去调用一个函数时，这个函数将会作为构造函数调用。
+             1.1 创建一个普通的JS对象，Object对象{}，称为新对象
+             1.2 新对象的原型 = 构造函数的prototype
+             1.3 新对象 = 函数的this
+             1.4 
+                  1.4.1 如果构造函数返回的是一个非原始值，则该值会作为new运算的返回值返回
+      */
+      function MyClass() {
+        return {
+          name: "tomsmith",
+          age: 21,
+        };
+      }
+
+      var p = new MyClass();
+      console.log(p); //Obejct
+    
+      /*1.4.2 如果构造函数的返回值是一个原始值或者没有指定返回值，则新的对象将作为返回值放返回*/
+      
+      function MyClass2() {}
+      var p = new MyClass2();
+      console.log(p); //MyClass2
+
+    </script>
+  </head>
+  <body>
+    <h1>new 关键字学习</h1>
+  </body>
+</html>

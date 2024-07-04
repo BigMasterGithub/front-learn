@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组学习</title>
+    <script>
+      /**
+       * 数组 Array
+       *  - 数组也是一种复合数据类型(与对象类似)，可以存储多个不同类型的数据
+       *  - 数组中存储的是有序的数据
+       */
+      const obj = { name: "tom", age: 12 };
+
+      // 创建方式一
+      const arr = new Array();
+      // 创建方式二
+      const arr2 = [];
+
+      console.log(arr);
+      console.log(arr2);
+
+      arr[0] = "tom";
+      arr[1] = "smith";
+      arr[2] = {
+        name: "tom",
+        age: 12,
+      };
+      console.log(arr.length);
+      console.log(arr);
+
+      const arr3 = [1, 2, 3, 4, 5, 1];
+      //数组遍历方式一
+      for (let value of arr3) {
+        console.log(value);
+      }
+      // 数组遍历方式二
+      for (let i = 0; i < arr3.length; i++) {
+        console.log(arr3[i]);
+      }
+
+      // Array 常用方法
+      // （1）isArray(var)
+      console.log(Array.isArray(arr3));
+      // (2)at()
+      console.log(arr3.at(3));
+      // (3)concat(var1,var2,....) 非破坏性方法，返回一个新的数组
+      let result = arr3.concat(arr);
+      console.log(result);
+      // (4) indexof()
+      console.log(result.indexOf("tom"));
+      // （5）lastIndexOf()
+      console.log(result.indexOf(1));
+      //(6) join()
+
+      console.log(result.join()); //1,2,3,4,5,1,tom,smith,[object Object]
+      console.log(result.join(" - ")); //1 - 2 - 3 - 4 - 5 - 1 - tom - smith - [object Object]
+
+      //(7)slice(start,end) : 截取数组,截止位置为[start,end)
+      let arr4 = [1, 2, 3, 4, 5, 6];
+      console.log(arr4.slice(0, 2));
+      console.log(arr4.slice(1, -1));
+
+      //浅拷贝与深拷贝
+      const arr6 = [{ name: "sun" }, { name: "wu" }];
+      //浅拷贝，arr7与arr6虽然所处内存地址不同，但是其元素（针对对象元素来说）都是一样的。
+      const arr7 = arr6.slice();
+      arr6[0].name = "wang";
+      console.log(arr6); //wang wu
+      console.log(arr7); //wang wu
+
+      //  深拷贝
+      const arr8 = structuredClone(arr6);
+      arr6[0].name = "li";
+      console.log(arr6); //li wu
+      console.log(arr8); //wang wu
+
+      //数组复制方法
+      // ... ： 展开运算符
+      const arr10 = [1, 2, 3];
+      const arr11 = [...arr10];
+      console.log(arr10);
+      console.log(arr11);
+
+      function sum(a, b, c) {
+        return a + b + c;
+      }
+      console.log(sum(...arr10));
+
+      //对象的复制
+      const obj10 = {
+        name: "tom",
+      };
+      // Object.assign(targetObj,sourceObj):
+      //   - 将sourceObj赋值到targetObj,并返回targetObj
+      //   - 浅拷贝
+      const obj11 = Object.assign({ name: "changtu" }, obj10);
+      // 使用展开运算符:浅拷贝
+      const obj12 = { sex: "boy", ...obj10, address: "chantu" };
+
+      arr10.push(10); //入栈，向末尾添加元素
+      arr10.pop(); //出站，移除开头元素
+      arr10.unshift(10); //入队
+      arr10.shift(); //出队
+
+      // splice（index，count，num）
+      // reverse
+      //数组的方法，高阶函数
+      const arr20 = ["a", "ac", "ab", "f", "d", "b"];
+      //1. sort(),默认按照Unicode编码进行排序，所以如果直接通过sort对数字排序可能报错。
+      arr20.sort();
+      console.log(arr20);
+      //2. foreach(element,index,array)
+      /* element : 当前元素
+         index ：当前元素索引
+         array ：被遍历的数组 
+        */
+      arr20.forEach((element, index, array) => {
+        console.log(index, element);
+      });
+
+      //3.filter()
+      let arr30 = [1, 2, 3, 4, 5, 6, 7, 8];
+      let result30 = arr30.filter((arr) => arr % 2 === 0);
+      // console.log(result30);
+      //4.map()
+      // result30 = arr.map((cur) => "hello");
+      // console.log(result30);
+      //5. reduce(function01,val);
+      /*
+         val 为初始值
+         function01为回调函数
+      */
+
+      result30 = arr30.reduce((a, b) => {
+        console.log(a, b);
+        return a + b;
+      });
+      console.log(result30);
+    </script>
+  </head>
+  <body>
+    <h1>数组学习</h1>
+
+    <ul type="square">
+      <li>数组的创建方式</li>
+      <li>数组的常用函数</li>
+      <li>数组的深拷贝与浅拷贝</li>
+    </ul>
+
+
+    <h4>Disc项目符号列表:</h4>
+        <ul type="disc">
+            <li>计算机科学与技术专业</li>
+            <li>软件工程专业  </li>
+            <li>信息管理与信息系统专业 </li>
+        </ul>
+        <h4>Circle项目符号列表:</h4>
+        <ul type="circle">
+            <li>计算机科学与技术专业</li>
+            <li>软件工程专业</li>
+            <li>信息管理与信息系统专业</1i>
+        </ul>
+        <h4>Square 项目符号列表:</h4>
+        <ul type="square">
+          <li>计算机科学与技术专业</li>
+          <li>软件工程专业</li>
+          <li>信息管理与信息系统专业</1i>
+        </ul>
+
+  </body>
+</html>
