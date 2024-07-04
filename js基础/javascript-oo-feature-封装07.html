@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 面向对象编程 - 封装特性学习</title>
+    <script>
+
+        //封装性：体现在用对象进行操作，以及将私有成员变量通过public方法使其数值被修改
+        class Person {
+            name
+            age
+            sex
+            #phone //私有属性
+            constructor() {
+                this.name = "xxx"
+                this.age = 100
+                this.sex = "boy"
+                this.#phone = 110
+            }
+            getPhone(){
+                return this.#phone
+            }
+
+            setPhone(phone){
+                if(isNaN(phone)) return ;
+                if(phone.length!=5) return;
+                this.#phone = phone
+            }
+        }
+
+        let person01 = new Person();
+        person01.name = "yyy"; //修改成员属性
+        person01.setPhone("12345")
+        let phoneNum = person01.getPhone();
+        console.log(person01);
+        console.log(phoneNum);
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript 对象学习</title>
+    <script>
+        //。方法  对象的成员变量为函数。
+        let obj={};
+        obj.name="tomsmith";
+        obj.age=18;
+        obj.sayHello= ()=>{
+            console.log("hello,world!")
+        }   
+        obj.sayHello();
+        console.log(obj);
+        //。window 对象
+        /*
+        js的内置对象 + 浏览器的宿主对象
+        内置对象： window对象可以直接使用
+        浏览器的宿主对象：alert、console、document
+        */
+
+        // window.alert("alert() function")
+        // alert("alert() function")
+        window.console.log("console.log()")
+        console.log("console.log")
+
+        //使用var 和 function 修饰的变量都会作为window的属性进行保存，var声明的变量没有块作用域，但是有函数作用域；
+        //➢➤➤但是let声明的变量不会绑定到window中
+        let param3 = 10 ;
+        window.param3 =20;
+        console.log(param3); //优先寻找let的修饰变量
+
+
+        //。当在局部作用域中不使用var或let声明变量时，变量会自动成为window对象的属性，即全局变量
+        param4 = 40;
+
+        let function_name1=()=>{
+            console.log(param4);
+            // var param4 = 50;
+            // console.log(param4);
+        }
+        function_name1();
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

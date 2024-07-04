@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript this参数</title>
+</head>
+<script>
+
+    //一.普通函数
+    //this所指向的对象根据函数调用的方式不同而不同
+
+    var function_name1 = function () {
+        console.log(this);
+    }
+
+    //1.以对象.函数形式调用，this指向调用的对象
+    window.function_name1(); // Window {window: Window, self: Window, document: document,...
+    const obj = {
+        name: "tomsmith",
+        age: 12,
+        myMethod: function () {
+            console.log(this.name + " - " + this.age)
+        }
+
+    }
+    obj.myMethod(); //{name: 'tomsmith', age: 12, myMethod: ƒ}
+    //
+    //二。箭头函数
+    let function_name2 = () => {
+        console.log("function2_name2 = " + this);
+    }
+
+    function_name2();
+    let obj2 = {
+        name: "tomsmith",
+        function_name2,  //tips：属性名与方法名一致可简写。     
+        function_name3() {
+            //普通函数
+            // function function_name4() {
+            //     console.log("function_name4 = " + this)
+            // }
+            //箭头函数
+            const function_name4 = () => {
+                console.log(this)
+            }
+
+
+            function_name4();
+        }
+
+
+
+    }
+    //箭头函数的this指向的对象固定不变，根据其外层作用域来确定。
+    obj2.function_name2(); //当前funciton_name2为在全局作用域中定义，其this对象指向为window
+    // obj2.function_name3(); //(1) function_name4为普通函数时，this对象为window
+    obj2.function_name3(); //(2) function_name4为箭头函数时，this对象为obj2
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

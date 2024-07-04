@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文档的加载</title>
+    <script>
+      /*
+          网页是自上向下加载的，如果将js代码编写到网页的上边，
+             js代码在执行时，网页还没有加载完毕，可能会出问题
+             解决办法：
+                1. 将<script>标签放到<body>底部。
+                2. 将代码编写到window.onload的回调函数中
+                3. 将代码编写到document对象的DOMContentLoaded的回调函数中
+      */
+
+      window.onload = function () {
+        let btn02 = document.getElementById("id");
+        btn02.addEventListener("click", () => {
+          alert("hello");
+        });
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let btn02 = document.getElementById("id");
+        btn02.addEventListener("click", () => {
+          alert("hello");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="btn">点我一下</button>
+  </body>
+</html>

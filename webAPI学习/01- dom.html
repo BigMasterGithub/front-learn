@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebAPI —— DOM</title>
+  </head>
+  <body>
+    <button id="btn">点我一下</button>
+
+    <div id="div01"><span style="background-color:wheat">我是div</span></div>
+
+    <input type="text" name ="username" value="admin"></input>
+    <script>
+      /*
+      获取元素节点对象（element）
+         getElementById
+         getElementByClassName
+         getElementsByTagName(var) var = *时，返回所有元素
+         getElementsByName()
+         querySelectorAll() : 根据选择器去页面中查询元素
+         querySelector() ：根据选择器去页面中查询第一个符合条件的元素
+    */
+    let div01 = document.getElementById("div01");
+
+    const input = document.querySelector("[name=username]");
+      /*
+      
+      获取元素节点方法
+        div元素的原型链：
+        HTMLDiVElement->HTMLElement->Element->Node->....
+        
+       
+        */
+      /*
+        文本节点
+        在DOM中，网页中所有的文本内容都是文本节点对象。
+        修改文本的三个属性：
+          element.textContent : 获取或修改元素中的文本内容,不考虑css的影响。 
+          element.innerText ： 获取或修改元素中的文本内容,字符串中的标签会转义，考虑css的影响。
+          element.innerHTML ：获取或修改元素中的html代码，字符串中的标签的字样会按照html显示。
+       */
+
+       /*
+        属性节点
+        修改属性的方式：
+        1.对象.属性 = 属性值
+        2.对象.setAttribute();
+            对象.getAttribute();
+            对象.removeAttribute();
+       */      
+      
+      
+      input.setAttribute("style","background-color:wheat");
+
+      /*
+        事件(event)    
+            
+       */
+        let btn01 = document.getElementById("btn");
+        //给按钮绑定【单击】事件
+        btn01.onclick=()=>{
+            alert("我又被点了一下~~")
+        }
+        btn01.onclick=()=>{
+            alert("我又被点了两下~~")
+        }
+        //属性=函数的方式，后面的赋值会覆盖前面的函数。
+        btn.addEventListener("click",function(){
+            alert("1");
+        })
+        btn.addEventListener("click",function(){
+            alert("2");
+        })
+        btn.addEventListener("click",function(){
+            alert("2");
+        })
+        //addEventListener绑定响应函数，会叠加的。
+
+        //文档的加载
+        
+    </script>
+  </body>
+</html>

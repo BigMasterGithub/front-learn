@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript对象结构 -- prototype</title>
+    <script>
+      class Person {
+        name;
+        age;
+        sayHello() {
+          console.log('Hello,我是 ' + this.name);
+        }
+      }
+
+      const p = new Person();
+      const p2 = new Person();
+      console.log(p.__proto__ === p2.__proto__); //相同类的对象的原型是一样的
+      // console.log(p);
+      // console.log(p.__proto__);
+      // console.log(Object.getPrototypeOf(p));
+
+      console.log('p.__proto__ =  ');
+      console.log(p.__proto__);
+      console.log('p.__proto__.__proto__ = ');
+      console.log(p.__proto__.__proto__);
+
+      console.log('p.__proto__.__proto__ = ');
+      console.log(p.__proto__.__proto__);
+
+      console.log('p.__proto__.__proto__.__proto__ = ');
+      console.log(p.__proto__.__proto__.__proto__);
+
+      const obj = {};
+      console.log(obj.__proto__);
+      console.log(obj.__proto__.__proto__);
+
+      // sdad
+      console.log('Obejct.__proto__ =  ' + Object.__proto__);
+    </script>
+  </head>
+  <body></body>
+</html>

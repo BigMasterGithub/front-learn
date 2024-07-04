@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 面向对象编程 - 继承学习</title>
+    <script>
+      class Animal {
+        name;
+        constructor(name) {
+          this.name = name;
+        }
+        print() {
+          console.log(' Animal class');
+        }
+      }
+
+      class Pig extends Animal {
+        //构造函数
+        constructor(name, age) {
+          super(name);
+          this.age = age;
+        }
+        print() {
+          console.log(' Pig class :' + this.name + ' - ' + this.age);
+        }
+      }
+
+      class Snake extends Animal {
+        print() {
+          console.log(' Snake class');
+        }
+      }
+      const pig01 = new Pig('tom', 100);
+      const snake01 = new Snake('jerry');
+    </script>
+  </head>
+
+  <body></body>
+</html>

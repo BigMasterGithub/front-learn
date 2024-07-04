@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 面向对象编程 -多态学习</title>
+    <script>
+        class Dog {
+            constructor(name) {
+                this.name = name
+            }
+        }
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+        class Test{
+
+        }
+        const dog = new Dog("dog01");
+
+        const person = new Person("person01")
+
+        const test = new Test(); // 创建一个不含name属性的类对象
+        // 多态的体现
+        function sayHello(obj) {
+            console.log("hello,[ "+obj.name+" ]");
+        }
+        console.log(dog)
+        console.log(person)
+        console.log(test)
+
+        sayHello(test);
+        sayHello(dog);
+        sayHello(person);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

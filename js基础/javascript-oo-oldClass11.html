@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js - 早期对类的定义</title>
+    <script>
+      //早期JS中，直接通过函数来代替类的定义
+      //    -- 通过new 调用new xxx（）那么这个函数就是一个构造函数
+      //(一)类定义
+      var Person = (function () {
+        function Person(name, age) {
+          this.age = age;
+          this.name = name;
+        }
+        //向原型中添加属性方法
+        Person.prototype.sayHello = function () {
+          console.log('function sayHello');
+        };
+        //静态属性
+        Person.count = 10;
+        //静态方法
+        Person.MinusCount = function () {
+          Person.count--;
+        };
+        Person.AddCount = function () {
+          Person.count++;
+        };
+        return Person;
+      })();
+
+      const p = new Person('tom', 100);
+      console.log(p);
+      console.log(Person.count);
+
+      Person.AddCount();
+      console.log(Person.count);
+      Person.MinusCount();
+      console.log(Person.count);
+
+      //(二）类的继承
+      var Animal = (function () {
+        function Animal() {}
+        return Animal;
+      })();
+
+      var Cat = (function () {
+        function Cat() {}
+        //修改其原型对象指向其父类
+        Cat.prototype = new Animal();
+        return Cat;
+      })();
+
+      var cat = new Cat();
+      console.log(cat);
+    </script>
+  </head>
+  <body></body>
+</html>

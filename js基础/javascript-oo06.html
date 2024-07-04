@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 面向对象编程 - OOP</title>
+    <script>
+
+
+        class Person{
+
+            //成员变量
+            name="xxx"
+            age= 18
+            //静态类变量
+            static contry = "china" 
+            //方法
+            function01 =function(){
+                console.log("function01 :"+this.name + " - " + this.age);
+            }
+            //方法
+            function02(){
+                console.log("function02 :" + this.name + " - " + this.age)
+            } 
+            //静态方法
+            static function03(){
+                console.log("function02 :" + Person.contry)
+            }
+            //构造函数
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+           
+
+        }
+       
+        // Person.function03();
+        // let linlin = new Person();
+        // linlin.name = "linlin";
+        // linlin.age = 100;
+        // linlin.function01();
+        // linlin.function02();
+        // let tom = new Person();
+        // let bob = new Person();
+        // console.log(linlin === tom);
+        // console.log(linlin instanceof Person );
+        // console.log(linlin);
+        // console.log(Person.contry)
+
+        let person01 = new Person("person01",100);
+        let person02 = new Person("person02",200);
+        let person03 = new Person("person03",300);
+
+        console.log(person01);
+        console.log(person02);
+        console.log(person03);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

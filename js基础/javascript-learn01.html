@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript 函数学习</title>
+</head>
+<script>
+    let obj = {
+        "name": "张三",
+        "age": 12
+    }
+    // ------------- ------------------
+    //.方法定义
+    function function_name() {
+
+        let value = 10;
+        return value;
+    }
+
+    let function_name2 = function () {
+        let value = 20;
+        return value;
+    }
+
+    let function_name3 = () => {
+        let value = 30;
+        return value;
+    }
+    //.方法使用
+    console.log(function_name());
+    console.log(function_name2());
+    console.log(function_name3());
+
+    // ------------------ -----------
+    //函数的参数
+    let function_name4 = (obj) => {
+        console.log(obj.age);
+        console.log(obj.name);
+        obj.name = "zhangsan";
+        obj.age = 200;
+    }
+    console.log(obj);
+    function_name4(obj);
+    console.log(obj);
+    let defaultObj = {
+        name: "lisi",
+        age: 100
+    }
+
+    let function_name5 = (obj = defaultObj) => {
+
+        obj.age += 100;
+    }
+    console.log(obj);
+    function_name5(obj);
+    function_name5(obj);
+    function_name5(obj);
+    console.log(obj);
+
+
+    // 函数作为参数，可以传递代码
+    let funciton_name6 = (fun) => {
+        console.log(fun);
+    }
+    funciton_name6(function_name2);
+    //。箭头函数的返回值
+    let function_name6 = (a = 0, b = 0) => a + b;
+
+
+    console.log("function_namn6 = " + function_name6(100, 200));
+
+    //箭头函数返回对象怎么处理？? 使用()将对象包起来
+    let function_name7 = () => (
+        {
+            name: "tomsmith",
+            age: 20
+        }
+    )
+    console.log(function_name7());
+
+    //.作用域链，遵循就近原则
+    let param2 = 10;
+
+    {
+        let param2 = 20;
+        console.log(param2);
+    }
+
+    
+
+</script>
+
+<body>
+
+</body>
+
+</html>
